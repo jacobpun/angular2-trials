@@ -1,0 +1,35 @@
+<div [ngSwitch]="isAdd">
+  <h1 *ngSwitchCase = "true">
+    Add new Person
+  </h1>
+  <h1 *ngSwitchCase = "false">
+    Edit Person
+  </h1>
+</div>
+<form [formGroup] = "personForm" (ngSubmit) = "onSubmit()">
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" [disabled]='!personForm.valid'>Submit</button>
+    <br/>
+    <br/>
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName = "name">    
+
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email"  placeholder="Enter email"  formControlName = "email">
+    
+    <label for="gender">Gender</label>
+    <select class="form-control" id="gender" formControlName="gender">
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" rows="3"  formControlName = "description"></textarea>
+
+    <label for="imagePath">Image Path</label>
+    <input type="text"  class="form-control" id="imagePath" (keyup) = "0" #imageUrl   formControlName = "imagePath">
+    <div class="col-xs-12">
+      <img [src]='imageUrl.value' class="img-responsive">
+    </div>
+  </div>
+</form>

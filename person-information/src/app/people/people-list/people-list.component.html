@@ -1,0 +1,7 @@
+<button type="button" class="btn btn-success" (click)='onAddNewClick()'>Add New</button>
+<br/>
+<br/>
+
+<div *ngFor='let person of personList'>
+  <pi-person [person] = person></pi-person>
+</div>
