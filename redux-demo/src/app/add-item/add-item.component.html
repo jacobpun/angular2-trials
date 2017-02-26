@@ -1,0 +1,6 @@
+  <input type = "text" [(ngModel)] = "currentItem" (keyup) = "0"/>
+  <input type = "button" (click) = "addItem()" value = "Add Item" [disabled] = "currentItem === ''" />
+  
+  <ul *ngFor = "let item of items">
+    <li (click) = "removeItem(item)">{{item}}</li>
+  </ul>
